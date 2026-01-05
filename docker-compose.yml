@@ -1,0 +1,19 @@
+services:
+  excel:
+    build: .
+    container_name: excel
+    ports:
+      - "80:8080"
+    environment:
+      # - LOG_LEVEL=DEBUG
+      - SET_COUNT=2
+      - AWS_S3_BUCKET_NAME=name
+      - AWS_S3_ACCESS_KEY=akey
+      - AWS_S3_SECRET_KEY=skey
+      # 선택: 키 구조에 따라 프리픽스 조정
+      - S3_PREFIX_A=Contents/Excel/A/
+      - S3_PREFIX_S=Contents/Excel/S/
+      # 선택: 리전
+      - AWS_REGION=ap-northeast-2
+
+    tty: true
